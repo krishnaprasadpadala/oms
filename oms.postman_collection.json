@@ -1,0 +1,394 @@
+{
+	"info": {
+		"_postman_id": "ddaf12fc-bd6a-47a2-96ba-763d2dcc352a",
+		"name": "oms",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Order Items",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"productCode\": \"MOB-003\",\n        \"productName\": \"Mobile\",\n        \"quantity\": 100,\n        \"orderId\": 200\n    },\n    {\n        \"productCode\": \"MOB-004\",\n        \"productName\": \"Mobile\",\n        \"quantity\": 100,\n        \"orderId\": 200\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8070/order-item",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8070",
+					"path": [
+						"order-item"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Order Items",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"productCode\": \"MOB-001\",\n        \"productName\": \"Mobile\",\n        \"quantity\": 100,\n        \"orderId\": 200\n    },\n    {\n        \"productCode\": \"MOB-002\",\n        \"productName\": \"Mobile\",\n        \"quantity\": 100,\n        \"orderId\": 200\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8070/order-item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"order-item"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Jul 2020 14:49:29 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"productCode\": \"MOB-001\",\n        \"productName\": \"Mobile\",\n        \"quantity\": 100,\n        \"orderId\": 200\n    },\n    {\n        \"id\": 2,\n        \"productCode\": \"MOB-002\",\n        \"productName\": \"Mobile\",\n        \"quantity\": 100,\n        \"orderId\": 200\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Order Item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8070/order-item/100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8070",
+					"path": [
+						"order-item",
+						"100"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Order Item - Invalid Order Id is given",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8070/order-item/1000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"order-item",
+								"1000"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Jul 2020 14:29:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2020-07-28T14:29:24.913+00:00\",\n    \"status\": \"NOT_FOUND\",\n    \"error\": \"Internal Server Error\",\n    \"message\": \"No Order Items present for the given order Id '1000'\",\n    \"path\": \"/order-item/1000\"\n}"
+				},
+				{
+					"name": "Get Order Item",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8070/order-item/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8070",
+							"path": [
+								"order-item",
+								"100"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Jul 2020 14:28:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 100,\n        \"productCode\": \"HK-001\",\n        \"productName\": \"Ear Phones\",\n        \"quantity\": 3,\n        \"orderId\": 100\n    },\n    {\n        \"id\": 200,\n        \"productCode\": \"HK-002\",\n        \"productName\": \"Pen\",\n        \"quantity\": 3,\n        \"orderId\": 100\n    },\n    {\n        \"id\": 300,\n        \"productCode\": \"HK-003\",\n        \"productName\": \"Book\",\n        \"quantity\": 3,\n        \"orderId\": 100\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Create Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customerName\" : \"Krishna\",\n    \"address\": \"Hyderabad\",\n    \"orderItems\": [\n    {\n        \"productCode\": \"MOB-001\",\n        \"productName\": \"Mobile\",\n        \"quantity\": 100\n    },\n    {\n        \"productCode\": \"MOB-002\",\n        \"productName\": \"Mobile\",\n        \"quantity\": 100\n    }\n]\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Order",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerName\" : \"Krishna\",\n    \"address\": \"Hyderabad\",\n    \"orderItems\": [\n    {\n        \"productCode\": \"MOB-003\",\n        \"productName\": \"Mobile\",\n        \"quantity\": 100\n    },\n    {\n        \"productCode\": \"MOB-004\",\n        \"productName\": \"Mobile\",\n        \"quantity\": 100\n    }\n]\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"order"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Jul 2020 15:40:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"customerName\": \"Krishna\",\n    \"orderDate\": \"2020-07-28T15:40:07.905+00:00\",\n    \"address\": \"Hyderabad\",\n    \"orderItems\": [\n        {\n            \"id\": 13,\n            \"productCode\": \"MOB-003\",\n            \"productName\": \"Mobile\",\n            \"quantity\": 100,\n            \"orderId\": 1\n        },\n        {\n            \"id\": 14,\n            \"productCode\": \"MOB-004\",\n            \"productName\": \"Mobile\",\n            \"quantity\": 100,\n            \"orderId\": 1\n        }\n    ],\n    \"total\": 700000\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/order/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"order",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Order",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/order/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"order",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Jul 2020 15:41:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"customerName\": \"Krishna\",\n    \"orderDate\": \"2020-07-28T15:40:07.905+00:00\",\n    \"address\": \"Hyderabad\",\n    \"orderItems\": [\n        {\n            \"id\": 13,\n            \"productCode\": \"MOB-003\",\n            \"productName\": \"Mobile\",\n            \"quantity\": 100,\n            \"orderId\": 1\n        },\n        {\n            \"id\": 14,\n            \"productCode\": \"MOB-004\",\n            \"productName\": \"Mobile\",\n            \"quantity\": 100,\n            \"orderId\": 1\n        }\n    ],\n    \"total\": 700000\n}"
+				},
+				{
+					"name": "Get Order - Invalid Order Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/order/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"order",
+								"5"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Jul 2020 15:42:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2020-07-28T15:42:14.818+00:00\",\n    \"status\": \"NOT_FOUND\",\n    \"error\": \"Internal Server Error\",\n    \"message\": \"No Order present for Order Id '5'\",\n    \"path\": \"/order/5\"\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
